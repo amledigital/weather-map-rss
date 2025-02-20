@@ -1,0 +1,11 @@
+BASE_URL="/"
+PORT=":8080"
+IS_PRODUCTION=true
+ENTRY="cmd/rss/*.go"
+BIN_OUT="bin/weather_maps_rss"
+
+
+run:
+	env GOOS=windows GOARCH=amd64 go build -o ${BIN_OUT} cmd/rss/*.go && \
+		${BIN_OUT} -base_url=${BASE_URL} -port=${PORT}
+
