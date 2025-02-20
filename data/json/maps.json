@@ -1,0 +1,76 @@
+{
+  "weather_maps": [
+    {
+      "id": 0,
+      "title": "Severe Warnings",
+      "link": "https://spicymagic.9and10news.com/weather-images/WEB_DMA_Severe_Warnings.jpg",
+      "description": "Local Severe Warnings"
+    },
+    {
+      "id": 1,
+      "title": "Winter Weather Alerts",
+      "link": "https://spicymagic.9and10news.com/weather-images/WEB_DMA_Winter_Warnings.jpg",
+      "description": "local winter weather alerts"
+    },
+    {
+      "id": 2,
+      "title": "Local Radar",
+      "link": "https://spicymagic.9and10news.com/weather-images/Radar_Large.gif",
+      "description": "local radar graphic"
+    },
+    {
+      "id": 3,
+      "title": "Regional Radar",
+      "link": "https://spicymagic.9and10news.com/weather-images/WEB_State_Radar.gif",
+      "description": "Regional Radar graphic"
+    },
+    {
+      "id": 4,
+      "title": "Visibility",
+      "link": "https://spicymagic.9and10news.com/weather-images/Visibility.jpg",
+      "description": "Visibility report for northern lower Michigan"
+    },
+    {
+      "id": 5,
+      "title": "Local Temps",
+      "link": "https://spicymagic.9and10news.com/weather-images/LOCAL_TEMPS1.jpg",
+      "description": "Local Temps"
+    },
+    {
+      "id": 6,
+      "title": "Feels Like Temps",
+      "link": "https://spicymagic.9and10news.com/weather-images/Feelslike.jpg",
+      "description": "Feel Like Temps"
+    },
+    {
+      "id": 7,
+      "title": "Wind Speeds",
+      "link": "https://spicymagic.9and10news.com/weather-images/WindSpeeds.jpg",
+      "description": "Wind Speeds"
+    },
+    {
+      "id": 8,
+      "title": "Wind Gusts",
+      "link": "https://spicymagic.9and10news.com/weather-images/WindGusts.jpg",
+      "description": "Wind Gusts"
+    },
+    {
+      "id": 9,
+      "title": "Snow Depth",
+      "link": "https://spicymagic.9and10news.com/weather-images/Snowdepth.jpg",
+      "description": "Snow Depth"
+    },
+    {
+      "id": 10,
+      "title": "Water Temps",
+      "link": "https://spicymagic.9and10news.com/weather-images/WEB_Water_Temps.jpg",
+      "description": "Water Temps"
+    },
+    {
+      "id": 11,
+      "title": "Drought Monitor",
+      "link": "https://spicymagic.9and10news.com/weather-images/WEB_DMA_Drought_Monitor.jpg",
+      "description": "Drought Monitor"
+    }
+  ]
+}
