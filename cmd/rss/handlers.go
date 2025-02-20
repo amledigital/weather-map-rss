@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/amledigital/weather-maps-rss/data"
+	"github.com/amledigital/weather-map-rss/data"
 )
 
 var (
