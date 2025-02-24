@@ -78,9 +78,11 @@ func (a *AppConfig) HandleGetWeatherMapRSS(w http.ResponseWriter, r *http.Reques
 			log.Fatalln(err)
 		}
 
-		out := strings.ReplaceAll(string(b), "></media:thumbnail>", " />")
+		// hack and cleanup formatting for Baron RSS feed ingress
 
+		out := strings.ReplaceAll(string(b), "></media:thumbnail>", " />")
 		out = strings.ReplaceAll(out, "></media:content>", " />")
+		out = strings.ReplaceAll(out, "></atom:link>", " />")
 
 		_, err = io.WriteString(w, out)
 
