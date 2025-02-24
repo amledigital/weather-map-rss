@@ -20,7 +20,7 @@ func main() {
 
 	srv := &http.Server{
 		Addr:              app.Port,
-		Handler:           routes(),
+		Handler:           redirectToFeedExt(routes()),
 		IdleTimeout:       time.Second * 30,
 		ReadTimeout:       time.Second * 10,
 		ReadHeaderTimeout: time.Second * 25,

@@ -93,12 +93,17 @@ func NewAtomLink() *AtomLink {
 	}
 }
 
+type Guid struct {
+	IsPermalink bool   `xml:"isPermalink,attr"`
+	Text        string `xml:",chardata"`
+}
+
 type WeatherMapItem struct {
 	Title          string         `xml:"title"`
 	Link           string         `xml:"link"`
 	Description    string         `xml:"description"`
 	PubDate        string         `xml:"pubDate"`
-	Guid           string         `xml:"guid"`
+	Guid           Guid           `xml:"guid"`
 	MediaThumbnail MediaThumbnail `xml:"media:thumbnail"`
 	MediaContent   MediaContent   `xml:"media:content"`
 }
@@ -109,7 +114,10 @@ func NewWeatherMapItem(title, link, description, pubdate, guid string) *WeatherM
 		Link:        link,
 		Description: description,
 		PubDate:     pubdate,
-		Guid:        guid,
+		Guid: Guid{
+			Text:        guid,
+			IsPermalink: false,
+		},
 	}
 }
 
