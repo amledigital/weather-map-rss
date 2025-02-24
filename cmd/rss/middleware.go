@@ -11,10 +11,10 @@ func redirectToFeedExt(next http.Handler) http.Handler {
 
 			if pretty == "true" {
 
-				http.Redirect(w, r, "/rss/v1/weather-maps/feed.xml?pretty=true", http.StatusSeeOther)
+				http.Redirect(w, r, "/rss/v1/weather-maps/rss.xml?pretty=true", http.StatusSeeOther)
 
 			} else {
-				http.Redirect(w, r, "/rss/v1/weather-maps/feed.xml", http.StatusSeeOther)
+				http.Redirect(w, r, "/rss/v1/weather-maps/rss.xml", http.StatusSeeOther)
 			}
 
 			return

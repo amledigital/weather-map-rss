@@ -8,7 +8,7 @@ func routes() *http.ServeMux {
 
 	rtr := http.NewServeMux()
 
-	rtr.HandleFunc("/rss/v1/weather-maps/feed.xml", app.HandleGetWeatherMapRSS)
+	rtr.HandleFunc("/rss/v1/weather-maps/rss.xml", app.HandleGetWeatherMapRSS)
 
 	return rtr
 
