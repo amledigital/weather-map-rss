@@ -94,7 +94,7 @@ func NewAtomLink() *AtomLink {
 }
 
 type Guid struct {
-	IsPermalink bool   `xml:"isPermalink,attr"`
+	IsPermalink bool   `xml:"isPermaLink,attr"`
 	Text        string `xml:",chardata"`
 }
 
