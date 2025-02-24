@@ -66,7 +66,7 @@ func (a *AppConfig) HandleGetWeatherMapRSS(w http.ResponseWriter, r *http.Reques
 
 	feed = NewRssFeed()
 
-	feed.Channel.AtomLink.Href = "http://localhost:8080" + r.URL.Path
+	feed.Channel.AtomLink.Href = app.BaseURL + r.URL.Path
 
 	feed.Channel.Items = weathMapJson.WeatherMaps
 
