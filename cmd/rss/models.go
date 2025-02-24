@@ -22,30 +22,32 @@ func NewAppConfig() *AppConfig {
 }
 
 type rss struct {
-	XmlnsAtom string   `xml:"xmlns:atom,attr"`
-	Version   string   `xml:"version,attr"`
-	Channel   *Channel `xml:"channel"`
+	XmlnsAtom  string   `xml:"xmlns:atom,attr"`
+	XmlnsMedia string   `xml:"xmlns:media,attr"`
+	Version    string   `xml:"version,attr"`
+	Channel    *Channel `xml:"channel"`
 }
 
 func NewRssFeed() *rss {
 	var feed = &rss{
-		XmlnsAtom: "http://www.w3.org/2005/Atom",
-		Version:   "2.0",
-		Channel:   NewChannel("", "", ""),
+		XmlnsAtom:  "http://www.w3.org/2005/Atom",
+		XmlnsMedia: "http://search.yahoo.com/mrss/",
+		Version:    "2.0",
+		Channel:    NewChannel("", "", ""),
 	}
 	return feed
 }
 
 type Channel struct {
-	Title         string `xml:"title"`
-	Link          string `xml:"link"`
-	Description   string `xml:"description"`
-	Copyright     string `xml:"copyright"`
-	Language      string `xml:"language"`
-	PubDate       string `xml:"pubDate"`
-	LastBuildDate string `xml:"lastBuildDate"`
-	Generator     string `xml:"generator"`
-	*AtomLink     `xml:"atom:link"`
+	AtomLink      *AtomLink         `xml:"atom:link"`
+	Title         string            `xml:"title"`
+	Link          string            `xml:"link"`
+	Description   string            `xml:"description"`
+	Copyright     string            `xml:"copyright"`
+	Language      string            `xml:"language"`
+	PubDate       string            `xml:"pubDate"`
+	LastBuildDate string            `xml:"lastBuildDate"`
+	Generator     string            `xml:"generator"`
 	Items         []*WeatherMapItem `xml:"item"`
 }
 
@@ -64,6 +66,7 @@ func NewChannel(title, link, description string) *Channel {
 	}
 
 	return &Channel{
+		AtomLink:      NewAtomLink(),
 		Title:         title,
 		Link:          link,
 		Description:   description,
@@ -72,7 +75,6 @@ func NewChannel(title, link, description string) *Channel {
 		PubDate:       time.Now().Format(time.RFC1123Z),
 		LastBuildDate: time.Now().Format(time.RFC1123Z),
 		Generator:     "https://www.9and10news.com",
-		AtomLink:      NewAtomLink(),
 		Items:         NewWeatherMapItemList(),
 	}
 }
@@ -85,9 +87,9 @@ type AtomLink struct {
 
 func NewAtomLink() *AtomLink {
 	return &AtomLink{
-		Href: "",
 		Rel:  "self",
 		Type: "application/rss+xml",
+		Href: "",
 	}
 }
 

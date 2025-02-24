@@ -7,6 +7,7 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"strings"
 
 	"github.com/amledigital/weather-map-rss/data"
 )
@@ -62,6 +63,8 @@ func (a *AppConfig) HandleGetWeatherMapRSS(w http.ResponseWriter, r *http.Reques
 
 	feed = NewRssFeed()
 
+	feed.Channel.AtomLink.Href = app.BaseURL + r.URL.Path
+
 	feed.Channel.Items = weathMapJson.WeatherMaps
 
 	if prettyPrint == "true" {
@@ -71,7 +74,12 @@ func (a *AppConfig) HandleGetWeatherMapRSS(w http.ResponseWriter, r *http.Reques
 		if err != nil {
 			log.Fatalln(err)
 		}
-		_, err = io.WriteString(w, string(b))
+
+		out := strings.ReplaceAll(string(b), "></media:thumbnail>", " />")
+
+		out = strings.ReplaceAll(out, "></media:content>", " />")
+
+		_, err = io.WriteString(w, out)
 
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
