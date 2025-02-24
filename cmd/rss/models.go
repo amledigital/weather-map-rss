@@ -22,9 +22,9 @@ func NewAppConfig() *AppConfig {
 }
 
 type rss struct {
+	Version    string   `xml:"version,attr"`
 	XmlnsAtom  string   `xml:"xmlns:atom,attr"`
 	XmlnsMedia string   `xml:"xmlns:media,attr"`
-	Version    string   `xml:"version,attr"`
 	Channel    *Channel `xml:"channel"`
 }
 
