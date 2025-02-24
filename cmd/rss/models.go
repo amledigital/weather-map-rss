@@ -39,7 +39,6 @@ func NewRssFeed() *rss {
 }
 
 type Channel struct {
-	AtomLink      *AtomLink         `xml:"atom:link"`
 	Title         string            `xml:"title"`
 	Link          string            `xml:"link"`
 	Description   string            `xml:"description"`
@@ -48,6 +47,7 @@ type Channel struct {
 	PubDate       string            `xml:"pubDate"`
 	LastBuildDate string            `xml:"lastBuildDate"`
 	Generator     string            `xml:"generator"`
+	AtomLink      *AtomLink         `xml:"atom:link"`
 	Items         []*WeatherMapItem `xml:"item"`
 }
 

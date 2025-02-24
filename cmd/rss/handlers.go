@@ -91,7 +91,20 @@ func (a *AppConfig) HandleGetWeatherMapRSS(w http.ResponseWriter, r *http.Reques
 		}
 	} else {
 
-		err = xml.NewEncoder(w).Encode(feed)
+		b, err := xml.Marshal(feed)
+
+		if err != nil {
+			log.Fatalln(err)
+		}
+
+		// hack and cleanup formatting for Baron RSS feed ingress
+
+		out := strings.ReplaceAll(string(b), "></media:thumbnail>", " />")
+		out = strings.ReplaceAll(out, "></media:content>", " />")
+		out = strings.ReplaceAll(out, "></atom:link>", " />")
+
+		_, err = io.WriteString(w, out)
+
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 		}
